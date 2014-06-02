@@ -1,1 +1,1 @@
-# My Lineman Application
+# Ember POC for a Gantt dashboard
