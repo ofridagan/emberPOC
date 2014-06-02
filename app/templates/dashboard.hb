@@ -1,2 +1,4 @@
 <h1>Dashboard</h1>
-{{gantt-sheet char=rowsCount}}
+<div class="gantt">
+  {{gantt-sheet firstHeader="" header=header headerCol=headerCol rows=rowsCount cols=colsCount}}
+</div>

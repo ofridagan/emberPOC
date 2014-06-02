@@ -13,13 +13,10 @@ App.IndexRoute = Ember.Route.extend
 App.DashboardRoute = Ember.Route.extend
   model: ->
     @store.find 'gantt', 1
+  afterModel: (m)->
+    Ember.run.later @, (-> m.set('colsCount', 3)), 1000
 
-App.DashboardController = Ember.ObjectController.extend()
+App.DashboardController = Ember.ObjectController.extend
+  header: (-> _.map(_.range(1, @get('colsCount')+1), (x)->x*1000)).property 'colsCount'
+  headerCol: (-> _.map(_.range(1, @get('rowsCount')+1), (x)->x*1)).property 'rowsCount'
 
-App.GanttSheetComponent = Ember.Component.extend
-  tagName: 'table'
-
-
-Ember.Handlebars.helper 'gantt-td', (value, options) ->
-  res = @firstCol() ? '<td class="col-head">O</td>' : "<td>#</td>"
-  new Ember.Handlebars.SafeString res

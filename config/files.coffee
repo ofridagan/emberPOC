@@ -8,3 +8,5 @@ module.exports = (lineman) ->
       "vendor/bower/ember-data/ember-data.js"
       "vendor/js/**/*.js"
     ]
+  coffee:
+    app: ["app/js/main.coffee", "app/js/**/*.coffee"]

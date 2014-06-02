@@ -1,3 +1,12 @@
-<tr><td>{{char}}</td><td>p</td><td>O</td></tr>
-<tr><td>O</td><td>O</td><td>O</td></tr>
-<tr><td>O</td><td>O</td><td>O</td></tr>
+<thead>
+  <tr>
+    <td class="first-header">{{firstHeader}}</td>
+    {{#each header}}
+      <td>{{this}}</td>
+    {{/each}}
+  </tr>
+</thead>
+
+<tbody>
+  {{gridBody colsBinding="cols"}}
+</tbody>
