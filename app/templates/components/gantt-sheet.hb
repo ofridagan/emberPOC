@@ -1,12 +1,9 @@
 <thead>
-  <tr>
-    <td class="first-header">{{firstHeader}}</td>
-    {{#each header}}
-      <td>{{this}}</td>
-    {{/each}}
-  </tr>
+  {{grid-row header=true first=options.corner cols=options.firstRow}}
 </thead>
 
 <tbody>
-  {{gridBody colsBinding="cols"}}
+  {{#each first in options.firstCol}}
+    {{grid-row first=first cols=options.firstRow}}
+  {{/each}}
 </tbody>

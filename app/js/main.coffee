@@ -13,10 +13,21 @@ App.IndexRoute = Ember.Route.extend
 App.DashboardRoute = Ember.Route.extend
   model: ->
     @store.find 'gantt', 1
-  afterModel: (m)->
-    Ember.run.later @, (-> m.set('colsCount', 3)), 1000
+ # afterModel: (m)->
+ #   Ember.run.later @, (-> m.set('colsCount', 3)), 1000
 
 App.DashboardController = Ember.ObjectController.extend
-  header: (-> _.map(_.range(1, @get('colsCount')+1), (x)->x*1000)).property 'colsCount'
-  headerCol: (-> _.map(_.range(1, @get('rowsCount')+1), (x)->x*1)).property 'rowsCount'
+  header: (->
+    _.map(_.range(1, @get('colsCount')+1), (x)->x*1000)
+  ).property 'colsCount'
+  headerCol: (->
+    _.map(_.range(1, @get('rowsCount')+1), (x)->x*1)
+  ).property 'rowsCount'
+  ganttData: (->
+    cols: @get 'colsCount'
+    rows: @get 'rowsCount'
+    firstRow: @get 'header'
+    firstCol: @get 'headerCol'
+    corner: "-"
+  ).property 'colsCount', 'rowsCount', 'header', 'headerCol'
 

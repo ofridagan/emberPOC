@@ -1,17 +1,16 @@
 .gantt
-  background-color: #AAA
-  padding: 5px
+  border: 5px solid gray
+  .table
+    margin: 0
+    td, th
+      padding: 0 !important
+      vertical-align: middle
+      text-align: center
+      &.first-col
+        width: 1px
+        padding-right: 3px !important
+        padding-left: 3px !important
 
-.gantt-table
-  width: 100%
-  background-color: white
-  td
-    text-align: center
-    border: 1px solid #E0E0E0
-  td.header-col
-    border-right: 2px solid black
-    background-color: #f2f0e9
-  thead td
-    background-color: #f2f0e9
-  td.first-header
-    background-color: white
+    &.striped>tbody>tr:nth-of-type(odd)>td
+      background-color: #F9F9F9
+
