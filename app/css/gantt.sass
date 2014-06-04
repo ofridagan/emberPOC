@@ -3,7 +3,8 @@
 .gantt-sheet
   position: relative
 
-table.table.gantt-grid
+table.gantt-grid
+  table-layout: fixed
   margin: 0
   td, th
     height: 20px
@@ -11,7 +12,7 @@ table.table.gantt-grid
     vertical-align: middle
     text-align: center
     &.first-col
-      width: 5%
+      width: 15%
 
   &.striped>tbody>tr:nth-of-type(odd)>td
     background-color: #F9F9F9

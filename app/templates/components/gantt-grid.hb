@@ -1,4 +1,7 @@
 <table class="gantt-grid table striped table-bordered table-hover">
+  <thead>
+    {{grid-row header=true first=options.corner cols=options.firstRow}}
+  </thead>
 
   <tbody>
     {{#each first in options.firstCol}}

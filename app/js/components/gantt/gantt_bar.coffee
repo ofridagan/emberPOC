@@ -4,7 +4,7 @@
   figureMetrics: ->
     left: (@get('bar')[1] * @get('metrics.colWidth') + @get('metrics.offset.left')) / @get('metrics.width')
     top: (@get('bar')[0] * @get('metrics.rowHeight') + @get('metrics.offset.top')) / @get('metrics.height')
-    width: (@get('bar')[2] * @get('metrics.colWidth')) / @get('metrics.width') 
+    width: (@get('bar')[2] * @get('metrics.colWidth')) / @get('metrics.width')
     height: @get('metrics.rowHeight') / @get('metrics.height')
 
   toStyle: (m) ->
