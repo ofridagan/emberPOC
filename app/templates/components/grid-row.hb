@@ -1,5 +1,5 @@
 {{#if header}}
-    <th class="first-col">{{first}}</th>
+    <th class="first-col" {{bind-attr style="firstStyle"}}>{{first}}</th>
     {{#each col in cols}}
       <th {{bind-attr style="style"}}>{{col}}</th>
     {{/each}}

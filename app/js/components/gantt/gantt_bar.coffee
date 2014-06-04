@@ -1,14 +1,27 @@
 @App.GanttBarComponent = Ember.Component.extend
   classNames: ['gantt-bar']
   attributeBindings: ['style']
+
+  normalize: (metrics) ->
+    width = @get('metrics.width')
+    height = @get('metrics.height')
+    top: metrics.top / height
+    height: metrics.height / height
+    left: metrics.left / width
+    width: metrics.width / width
+
   figureMetrics: ->
-    left: (@get('bar')[1] * @get('metrics.colWidth') + @get('metrics.offset.left')) / @get('metrics.width')
-    top: (@get('bar')[0] * @get('metrics.rowHeight') + @get('metrics.offset.top')) / @get('metrics.height')
-    width: (@get('bar')[2] * @get('metrics.colWidth')) / @get('metrics.width')
-    height: @get('metrics.rowHeight') / @get('metrics.height')
+    metrics = @get('metrics')
+    @normalize
+      top: @get('bar')[0] * metrics.rowHeight + metrics.offset.top
+      left: @get('bar')[1] * metrics.colWidth + metrics.offset.left
+      width: @get('bar')[2] * metrics.colWidth
+      height: metrics.rowHeight
 
   toStyle: (m) ->
-    "top: #{m.top*100}%; left: #{m.left*100}%; width: #{m.width*100}%; height: #{m.height*100}%"
+    _.chain(m).pairs()
+      .map((pair) -> "#{pair[0]}: #{pair[1]*100}%;").value()
+      .join " "
 
   style: (->
     return unless @get 'metrics'

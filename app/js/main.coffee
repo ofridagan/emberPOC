@@ -26,7 +26,12 @@ App.DashboardController = Ember.ObjectController.extend
   ganttData: (->
     firstRow: @get 'firstRow'
     firstCol: @get 'firstCol'
-    values: [[3, 0, 5, "ofri"], [5, 3, 3, "dagan"]] # row(int), col(float), width(float), label(*)
+    firstColWidth: 7
+    values: [# row(int), col(float), width(float), label(*)
+      [3, 0, 2, "104"]
+      [5, 3, 3, "826"]
+      [3, 4, 3, "666"]
+    ]
     corner: "-"
   ).property 'firstRow', 'firstCol'
 

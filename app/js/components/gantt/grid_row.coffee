@@ -2,6 +2,9 @@
 @App.GridRowComponent = Ember.Component.extend
   tagName: 'tr'
   style: (->
-    "width: #{(100-15)/@get('cols.length')}%;"
+    "width: #{(100-@get('firstColWidth'))/@get('cols.length')}%;"
+  ).property 'cols'
+  firstStyle: (->
+    "width: #{@get('firstColWidth')}%;"
   ).property 'cols'
 
