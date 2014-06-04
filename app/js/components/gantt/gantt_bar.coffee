@@ -1,6 +1,6 @@
 @App.GanttBarComponent = Ember.Component.extend
   classNames: ['gantt-bar']
-  attributeBindings: ['style']
+  attributeBindings: ['outterStyle:style']
 
   normalize: (metrics) ->
     width = @get('metrics.width')
@@ -18,13 +18,21 @@
       width: @get('bar')[2] * metrics.colWidth
       height: metrics.rowHeight
 
-  toStyle: (m) ->
-    _.chain(m).pairs()
-      .map((pair) -> "#{pair[0]}: #{pair[1]*100}%;").value()
-      .join " "
+  figureColor: ->
+    colors = ["2793db", "bd9208", "db408d"]
+    'background-color': colors[@get('bar')[4] % colors.length]
 
-  style: (->
+  toStyle: (m, pairToStyle) ->
+    _.chain(m).pairs().map(pairToStyle).value().join " "
+
+  outterStyle: (->
     return unless @get 'metrics'
-    @toStyle @figureMetrics()
-  ).property 'metrics'
+    toMetricStyle = (pair) -> "#{pair[0]}: #{pair[1]*100}%;"
+    @toStyle @figureMetrics(), toMetricStyle
+  ).property 'metrics', 'bar'
 
+  innerStyle: (->
+    return unless @get 'bar'
+    toColorStyle = (pair) -> "#{pair[0]}: ##{pair[1]};"
+    @toStyle @figureColor(), toColorStyle
+  ).property 'bar'

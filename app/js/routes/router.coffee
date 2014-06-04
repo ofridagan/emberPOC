@@ -8,5 +8,5 @@ App.IndexRoute = Ember.Route.extend
 App.DashboardRoute = Ember.Route.extend
   model: ->
     @store.find 'gantt', 1
-  afterModel: (m)->
-    Ember.run.later @, (-> m.set('colsCount', 15)), 1000
+  #afterModel: (m)->
+  #  Ember.run.later @, (-> m.set('colsCount', 15)), 1000
