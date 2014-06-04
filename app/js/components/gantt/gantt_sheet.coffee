@@ -13,6 +13,7 @@
     @set 'metrics', @figureGridMetrics()
   didInsertElement: ->
     @setMetrics()
+    @$('table').tableHover({colClass: 'highlight', ignoreCols: [1]})
   updateMetrics: (->
     @setMetrics()
   ).observes 'options'
