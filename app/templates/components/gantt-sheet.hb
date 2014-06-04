@@ -1,9 +1,1 @@
-<thead>
-  {{grid-row header=true first=options.corner cols=options.firstRow}}
-</thead>
-
-<tbody>
-  {{#each first in options.firstCol}}
-    {{grid-row first=first cols=options.firstRow}}
-  {{/each}}
-</tbody>
+{{gantt-grid options=options}}

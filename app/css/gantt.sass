@@ -1,16 +1,21 @@
-.gantt
-  border: 5px solid gray
-  .table
-    margin: 0
-    td, th
-      padding: 0 !important
-      vertical-align: middle
-      text-align: center
-      &.first-col
-        width: 1px
-        padding-right: 3px !important
-        padding-left: 3px !important
+.gantt-container
 
-    &.striped>tbody>tr:nth-of-type(odd)>td
-      background-color: #F9F9F9
+.gantt-sheet
+  position: relative
 
+table.table.gantt-grid
+  margin: 0
+  td, th
+    height: 20px
+    padding: 0 !important
+    vertical-align: middle
+    text-align: center
+    &.first-col
+      width: 5%
+
+  &.striped>tbody>tr:nth-of-type(odd)>td
+    background-color: #F9F9F9
+
+.gantt-bar
+  position: absolute
+  background-color: red

@@ -5,5 +5,5 @@
 @App.Gantt.FIXTURES = [
   id: 1
   rowsCount: 30
-  colsCount: 8
+  colsCount: 10
 ]

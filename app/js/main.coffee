@@ -17,17 +17,16 @@ App.DashboardRoute = Ember.Route.extend
  #   Ember.run.later @, (-> m.set('colsCount', 3)), 1000
 
 App.DashboardController = Ember.ObjectController.extend
-  header: (->
+  firstRow: (->
     _.map(_.range(1, @get('colsCount')+1), (x)->x*1000)
   ).property 'colsCount'
-  headerCol: (->
+  firstCol: (->
     _.map(_.range(1, @get('rowsCount')+1), (x)->x*1)
   ).property 'rowsCount'
   ganttData: (->
-    cols: @get 'colsCount'
-    rows: @get 'rowsCount'
-    firstRow: @get 'header'
-    firstCol: @get 'headerCol'
+    firstRow: @get 'firstRow'
+    firstCol: @get 'firstCol'
+    values: [[3, 0, 5, "ofri"], [5, 3, 3, "dagan"]] # row(int), col(float), width(float), label(*)
     corner: "-"
-  ).property 'colsCount', 'rowsCount', 'header', 'headerCol'
+  ).property 'firstRow', 'firstCol'
 
