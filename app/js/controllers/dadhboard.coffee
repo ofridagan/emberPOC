@@ -7,21 +7,21 @@ App.DashboardController = Ember.ObjectController.extend
       [12,3,1,"003",3]
       [13,4,1,"004",4]
     ]), 5000
-    #Ember.run.later @, (-> @set('colsCount', 15)), 1000
+    #Ember.run.later @, (-> @set('colsCount', 16)), 1000
+    Ember.run.later @, (-> @set('firstColWidth', 10)), 3000
 
-  firstRow: (->
-    _.map(_.range(1, @get('colsCount')+1), (x)->x*10)
-  ).property 'colsCount'
-  firstCol: (->
-    _.map(_.range(1, @get('rowsCount')+1), (x)->x*1)
-  ).property 'rowsCount'
+  buildFirstRow: -> _.map(_.range(1, @get('colsCount')+1), (x)->x*10)
+  buildFirstCol: -> _.map(_.range(1, @get('rowsCount')+1), (x)->x*1)
+
+  firstColWidth: 3
+
   ganttData: (->
-    firstRow: @get 'firstRow'
-    firstCol: @get 'firstCol'
-    firstColWidth: 3
+    firstRow: @buildFirstRow()
+    firstCol: @buildFirstCol()
+    firstColWidth: @get 'firstColWidth'
     bars: @convertBars(@get 'bars')
     corner: "-"
-  ).property 'firstRow', 'firstCol', 'bars'
+  ).property 'colsCount', 'rowsCount', 'bars', 'firstColWidth'
 
   convertBars: (bars)->bars
 

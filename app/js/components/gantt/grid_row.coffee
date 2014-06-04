@@ -3,8 +3,8 @@
   tagName: 'tr'
   style: (->
     "width: #{(100-@get('firstColWidth'))/@get('cols.length')}%;"
-  ).property 'cols'
+  ).property 'cols', 'firstColWidth'
   firstStyle: (->
     "width: #{@get('firstColWidth')}%;"
-  ).property 'cols'
+  ).property 'firstColWidth'
 
