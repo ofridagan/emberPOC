@@ -13,8 +13,8 @@ App.IndexRoute = Ember.Route.extend
 App.DashboardRoute = Ember.Route.extend
   model: ->
     @store.find 'gantt', 1
- # afterModel: (m)->
- #   Ember.run.later @, (-> m.set('colsCount', 3)), 1000
+  afterModel: (m)->
+    Ember.run.later @, (-> m.set('colsCount', 15)), 1000
 
 App.DashboardController = Ember.ObjectController.extend
   firstRow: (->
@@ -26,11 +26,12 @@ App.DashboardController = Ember.ObjectController.extend
   ganttData: (->
     firstRow: @get 'firstRow'
     firstCol: @get 'firstCol'
-    firstColWidth: 7
+    firstColWidth: 3
     values: [# row(int), col(float), width(float), label(*)
       [3, 0, 2, "104"]
       [5, 3, 3, "826"]
       [3, 4, 3, "666"]
+      [8, 4.5, 1.5, "911"]
     ]
     corner: "-"
   ).property 'firstRow', 'firstCol'

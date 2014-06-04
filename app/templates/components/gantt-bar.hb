@@ -1,1 +1,3 @@
-{{bar.[3]}}
+<div class="inner-bar">
+  <label>{{bar.[3]}}</label>
+</div>

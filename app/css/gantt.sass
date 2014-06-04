@@ -1,6 +1,6 @@
-.gantt-container
-  border: 3px solid #AAA
+@import 'common'
 
+/* ------ Gantt Layout ------
 .gantt-sheet
   position: relative
 
@@ -8,17 +8,48 @@ table.gantt-grid
   table-layout: fixed
   margin: 0
   td, th
-    height: 20px
     padding: 0 !important
     vertical-align: middle
     text-align: center
 
-  &.striped>tbody>tr:nth-of-type(odd)>td
+.gantt-bar
+  pointer-events: none
+  border: 1px solid red
+  position: absolute
+  .inner-bar
+    height: 100%
+
+/* ------ Theming ------
+.gantt-container
+  border: 3px solid #2b8ecc
+
+table.gantt-grid
+  color: #b0b0b0
+  background-color: #002b36
+  font-size: 12px
+  &.table-bordered td, &.table-bordered th, &.table-bordered thead
+    border: 1px solid black
+  td, th
+    height: 20px
+    vertical-align: middle !important
+    font-weight: normal
+  td:nth-of-type(4n+1), th:nth-of-type(4n+1)
+    background-color: #073440
+
+  &.striped>tbody>tr:nth-of-type(odd)>td:not(.first-col)
     background-color: #F9F9F9
 
 .gantt-bar
-  position: absolute
-  text-align: center
-  background-color: red
-  color: white
+  padding: 3px 4px 3px 4px
+  border: none
+  .inner-bar
+    text-align: center
+    background-color: #2b8ecc
+    color: white
+    font-size: 10px
+    @include rounded(4px)
+    @include box-shadow(2px, 2px, 3px, black)
+    label
+      font-weight: normal
+      @include vertical-align
 

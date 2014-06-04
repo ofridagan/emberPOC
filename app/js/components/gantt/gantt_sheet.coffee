@@ -9,5 +9,10 @@
     colWidth: ((width - offset.left) / @get('options.firstRow.length'))
     height: height
     width: width
-  didInsertElement: ->
+  setMetrics: ->
     @set 'metrics', @figureGridMetrics()
+  didInsertElement: ->
+    @setMetrics()
+  updateMetrics: (->
+    @setMetrics()
+  ).observes 'options'
