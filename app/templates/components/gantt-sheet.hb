@@ -10,4 +10,4 @@
   </tbody>
 </table>
 
-{{gantt-content values=options.values metrics=metrics}}
+{{gantt-content bars=options.bars metrics=metrics}}
