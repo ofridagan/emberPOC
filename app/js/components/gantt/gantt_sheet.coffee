@@ -2,9 +2,8 @@
   classNames: ["gantt-sheet"]
   figureGridMetrics: ->
     height = @$().height()
-    width = @$().width()
+    width = @$("table").outerWidth()
     offset = @$("tbody tr:nth-of-type(1) td:nth-of-type(2)").position()
-    console.log "offffff    " + offset.left
     offset: offset
     rowHeight: @$("tbody tr").height()
     colWidth: ((width - offset.left) / @get('options.firstRow.length'))
@@ -19,3 +18,10 @@
     # needed to let the grid update before we calculate offset
     Ember.run.later @, @setMetrics, 0
   ).observes 'options'
+  tableStyle: (->
+    if @get 'options.columnsOptions.fitToContainer'
+      "width: 100%;"
+    else
+      "width: #{@get 'options.columnsOptions.ganttWidth'}px;"
+  ).property 'options.columnsOptions.fitToContainer',
+    'options.columnsOptions.ganttWidth'

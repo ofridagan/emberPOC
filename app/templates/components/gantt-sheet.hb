@@ -1,6 +1,6 @@
-<table class="gantt-grid table table-bordered table-hover">
+<table class="gantt-grid table table-bordered table-hover" {{bind-attr style=tableStyle}}>
   <thead>
-    {{grid-row firstColWidth=options.firstColWidth header=true first=options.corner cols=options.firstRow}}
+    {{grid-row columnsOptions=options.columnsOptions header=true first=options.corner cols=options.firstRow}}
   </thead>
 
   <tbody>

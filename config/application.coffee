@@ -4,6 +4,9 @@ module.exports = (lineman) ->
     options:
       bundleExec: true
 
+  removeTasks:
+    common: ["jst"]
+
   #  server:
   #      apiProxy:
   #        enabled: true

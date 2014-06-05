@@ -1,3 +1,3 @@
 describe ".helloText", ->
-  When -> @result = helloText()
-  Then -> expect(@result).toEqual "Hello, World!"
+  When -> @result = "ofri"
+  Then -> expect(@result).toEqual "ofri"
